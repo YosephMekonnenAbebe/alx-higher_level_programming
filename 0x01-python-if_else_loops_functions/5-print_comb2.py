@@ -2,7 +2,7 @@
 colon = ", "
 for yoseph in range(0, 100):
     if yoseph < 10:
-        print(f"{0:d}{yoseph:d}, """, end="")
+        print("{}{}".format(0, yoseph), end=colon)
     else:
         if yoseph == 99:
             colon = "\n"
