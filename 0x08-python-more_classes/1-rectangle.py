@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""""This module create a rectangle"""
+"""""This module create a rectangle side by side"""
 
 
 class Rectangle:
