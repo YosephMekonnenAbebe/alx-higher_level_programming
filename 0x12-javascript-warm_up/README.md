@@ -1,1 +1,1 @@
-# Java Script Warup by Yoseph Mekonnen
+Javascript by Yoseph Mekonnen
