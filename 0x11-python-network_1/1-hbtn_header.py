@@ -1,14 +1,17 @@
 #!/usr/bin/python3
-"""Fetches header"""
-import urllib.request
-import sys
+"""
+Script that takes in a URL, sends a request to the URL and displays
+the value of the X-Request-Id variable found in the header of the response.
 
+Usage: ./1-hbtn_header.py <URL>
+"""
+from sys import argv
+from urllib.request import Request, urlopen
 
-def fetcher():
-    """fetcher"""
-    with urllib.request.urlopen(sys.argv[1]) as response:
-        header = response.info()
-        print(header["X-Request-Id"])
 
 if __name__ == "__main__":
-    fetcher()
+    url = argv[1]
+    req = Request(url)
+
+    with urlopen(req) as response:
+        print(dict(response.headers).get("X-Request-Id"))

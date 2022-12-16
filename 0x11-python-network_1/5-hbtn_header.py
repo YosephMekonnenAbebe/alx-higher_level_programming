@@ -1,14 +1,16 @@
 #!/usr/bin/python3
-"""Check status"""
+"""
+Script that takes in a URL, sends a request to the URL and displays the
+value of the variable X-Request-Id in the response header.
+
+Usage: ./5-hbtn_header.py <URL>
+"""
 import requests
-import sys
+from sys import argv
 
-
-def header():
-    """status"""
-    result = requests.get(sys.argv[1])
-
-    print(result.headers.get("X-Request-Id", None))
 
 if __name__ == "__main__":
-    header()
+    url = argv[1]
+    req = requests.get(url)
+
+    print(req.headers.get("X-Request-Id"))

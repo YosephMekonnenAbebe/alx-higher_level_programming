@@ -1,18 +1,22 @@
 #!/usr/bin/python3
-"""Send request"""
-import urllib.request
-import urllib.error
-import sys
+"""
+Script that takes in a URL, sends a request to the URL and displays the
+body of the response (decoded in utf-8).
 
+Usage: ./3-error_code.py <URL>
+  - Handles HTTP errors.
+"""
+from sys import argv
+from urllib.request import Request, urlopen
+from urllib.error import HTTPError
 
-def sender():
-    """sender"""
-    try:
-        with urllib.request.urlopen(sys.argv[1]) as response:
-            html = response.read()
-            print(html.decode("utf-8"))
-    except urllib.error.HTTPError as e:
-        print("Error code: {}".format(e.code))
 
 if __name__ == "__main__":
-    sender()
+    url = argv[1]
+    req = Request(url)
+
+    try:
+        with urlopen(req) as response:
+            print(response.read().decode("ascii"))
+    except HTTPError as e:
+        print("Error code: {}".format(e.code))
