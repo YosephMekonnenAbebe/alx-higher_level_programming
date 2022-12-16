@@ -1,2 +1,1 @@
-# Network - Python by Yoseph Mekonnen
-## Language: Python by Yoseph Mekonnen
+Read me file for python network
